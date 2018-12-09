@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>registration</title>
+    <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style1.css') }}">
+</head>
+<body>
+	<div class="login-page">
+		<img src="./static/png2.jpg" class="avatar">
+		<div class="form">
+			<form class="register-form" action="/check" method="post" role="form">
+            <!-- <form  action="" method="post" role="form"> -->
+                {{ form.csrf }}
+				{{ form.csrf_token }}
+    			{{ form.first_name.label }}
+    			{{ form.first_name }}
+    			<ul>
+    				{% for error in form.first_name.errors %}
+        				<li style="color:red;">{{ error }}</li>
+    				{% endfor %}
+    			</ul>
+    			{{ form.last_name.label }}
+    			{{ form.last_name }}
+    			<ul>
+    				{% for error in form.last_name.errors %}
+        				<li style="color:red;">{{ error }}</li>
+    				{% endfor %}
+    			</ul>
+                {{ form.college.label }}
+                {{ form.college }}
+                <ul>
+                {% for error in form.college.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+                </ul>
+    			{{ form.username.label }}
+    			{{ form.username }}
+    			<ul>
+    			{% for error in form.username.errors %}
+        			<li style="color:red;">{{ error }}</li>
+    			{% endfor %}
+   				</ul>
+                {{ form.password.label}}
+                {{ form.password }}
+                <ul>
+                {% for error in form.password.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+                </ul>
+                
+                {{ form.email.label }}
+                {{ form.email }}
+                <ul>
+                {% for message in form.email.errors %}
+                    {{ message }}
+                {% endfor %}
+                {% for error in form.email.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+                </ul>
+        
+
+			<!-- <input type="text" placeholder="first name"/>
+			<input type="text" placeholder="last name"/>
+			<input type="text" placeholder="reg.no"/>
+			<input type="text" name="">
+			
+			<input type="text" placeholder="year"/>
+			<input type="text" placeholder="email Id"/>
+			<input type="text" placeholder="phone no"/>
+			<div class="form2">
+			<form>
+            <h2>Gender</h2>
+            <input type="radio" name="subject" value ="male" >Male
+            <input type="radio" name="subject" value ="female" >Female
+             -->			
+			<!-- <input type="text" placeholder="address"/> -->
+			 {{ form.submit }}
+
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

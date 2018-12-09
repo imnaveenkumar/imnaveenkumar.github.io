@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+   <body>
+   
+      <table border="solid">
+      	<tr>
+      		<th>FIRST NAME</th>
+      		<th>LAST NAME</th>
+      		<th>COLLEGE</th>
+      		<th>USERNAME</th>
+      		<th>EMAIL</th>
+      		<th>PASSWORD</th>
+      	</tr>
+      	<tr>
+         {% for key in p %}
+               <td> {{ key }} </td>
+         {% endfor %}
+         </tr>
+      </table>
+    <a href="logout.html">log out</a>
+   </body>
+</html>

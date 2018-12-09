@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style2.css') }}">
+</head>
+<body>
+	<div class="loginbox">
+		<img src="./static/user.png" class="avatar">
+		<h1>Login Here</h1>
+		{% with messages=get_flashed_messages() %}
+
+				{% if messages %}
+					{% for message in messages %}
+					
+						<li style="color:red">{{ message }}</li>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		
+		<form action="/check1" method="POST">
+			<!-- <p>User name</p>
+			<input type="text" placeholder="Enter Username" >
+			<p>Password</p>
+			<input type="text" placeholder="Enter password" > -->
+			{{ form.csrf }}
+			{{ form.csrf_token}}
+			{{ form.email1.label }}{{ form.email1}}
+			{{ form.password.label }}{{ form.password}}
+			{{ form.submit}}
+
+			
+
+
+			
+			<!-- <input type="Submit" value="Login"> -->
+			<a href="#">lost your password?</a><br>
+			<a href="reg1.html">register</a>
+			<a href="index1.html">HOME</a>
+			
+
+
+		</form>
+	</div>
+
+</body>
+</html>
